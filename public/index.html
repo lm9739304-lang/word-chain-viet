@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nối Từ Việt - Game Chơi Từ Online</title>
+  <meta name="description" content="Game nối từ tiếng Việt online nhiều người chơi. Thách thức bạn bè với kho từ điển tiếng Việt đầy đủ nhất!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ====== TRANG CHỦ ====== -->
+<div id="page-home" class="page active">
+  <div class="home-bg">
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div class="bg-orb orb3"></div>
+  </div>
+
+  <div class="home-container">
+    <div class="logo-section">
+      <div class="logo-icon">🔤</div>
+      <h1 class="logo-title">Nối Từ Việt</h1>
+      <p class="logo-sub">Game nối từ tiếng Việt online nhiều người chơi</p>
+      <div class="dict-badge">📚 Từ điển <span id="dict-count">2000+</span> từ</div>
+    </div>
+
+    <div class="home-card">
+      <!-- Chọn avatar -->
+      <div class="avatar-section">
+        <label class="input-label">Chọn avatar của bạn</label>
+        <div class="avatar-grid" id="avatar-grid">
+          <div class="avatar-item active" data-emoji="🐉">🐉</div>
+          <div class="avatar-item" data-emoji="🦁">🦁</div>
+          <div class="avatar-item" data-emoji="🦊">🦊</div>
+          <div class="avatar-item" data-emoji="🐼">🐼</div>
+          <div class="avatar-item" data-emoji="🦅">🦅</div>
+          <div class="avatar-item" data-emoji="🐯">🐯</div>
+          <div class="avatar-item" data-emoji="🦄">🦄</div>
+          <div class="avatar-item" data-emoji="🐬">🐬</div>
+          <div class="avatar-item" data-emoji="🌟">🌟</div>
+          <div class="avatar-item" data-emoji="🔥">🔥</div>
+          <div class="avatar-item" data-emoji="⚡">⚡</div>
+          <div class="avatar-item" data-emoji="🎯">🎯</div>
+        </div>
+      </div>
+
+      <!-- Tên người chơi -->
+      <div class="input-group">
+        <label class="input-label" for="input-username">Tên của bạn</label>
+        <input id="input-username" class="input-field" type="text" placeholder="Nhập tên..." maxlength="20" />
+      </div>
+
+      <div class="home-actions">
+        <button class="btn btn-primary" id="btn-create-room">
+          <span>🏠</span> Tạo Phòng Mới
+        </button>
+        <div class="divider"><span>hoặc</span></div>
+        <div class="input-group" style="margin-bottom: 12px;">
+          <label class="input-label" for="input-room-code">Mã phòng</label>
+          <input id="input-room-code" class="input-field code-input" type="text" placeholder="Nhập mã phòng (VD: QX5YSD)..." maxlength="6" />
+        </div>
+        <button class="btn btn-secondary" id="btn-join-room">
+          <span>🚀</span> Vào Phòng
+        </button>
+      </div>
+
+      <div id="home-error" class="error-msg hidden"></div>
+    </div>
+
+    <div class="rules-section">
+      <h3>📖 Luật chơi</h3>
+      <ul class="rules-list">
+        <li>🔗 Từ mới phải bắt đầu bằng <strong>âm tiết cuối</strong> của từ trước</li>
+        <li>📚 Từ phải có trong từ điển tiếng Việt</li>
+        <li>🚫 Không được lặp từ đã dùng</li>
+        <li>⏰ Mỗi lượt có <strong>20 giây</strong> để trả lời</li>
+        <li>❤️ Mỗi người có <strong>3 mạng</strong>, hết mạng bị loại</li>
+        <li>🏆 Người cuối cùng còn lại chiến thắng!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PHÒNG CHỜ ====== -->
+<div id="page-lobby" class="page">
+  <div class="lobby-header">
+    <button class="btn-back" id="btn-back-lobby">← Quay lại</button>
+    <div class="room-info">
+      <span class="room-label">Mã phòng</span>
+      <div class="room-code-display">
+        <span id="lobby-code">------</span>
+        <button class="copy-btn" id="btn-copy-code" title="Sao chép">📋</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lobby-container">
+    <div class="lobby-left">
+      <h2 class="section-title">👥 Người chơi</h2>
+      <div id="lobby-players" class="players-grid"></div>
+
+      <div id="lobby-host-actions" class="host-actions hidden">
+        <p class="waiting-text">Cần ít nhất <strong>2 người</strong> để bắt đầu</p>
+        <button class="btn btn-primary btn-large" id="btn-start-game">
+          🎮 Bắt đầu Game!
+        </button>
+      </div>
+      <div id="lobby-waiting-text" class="waiting-banner hidden">
+        <div class="spinner"></div>
+        <span>Đang chờ chủ phòng bắt đầu...</span>
+      </div>
+    </div>
+
+    <div class="lobby-right">
+      <div class="invite-box">
+        <h3>🔗 Mời bạn bè</h3>
+        <p>Chia sẻ mã phòng hoặc link sau:</p>
+        <div class="share-link" id="share-link"></div>
+        <button class="btn btn-outline" id="btn-copy-link">📋 Sao chép link</button>
+      </div>
+
+      <div class="chat-box">
+        <h3>💬 Chat</h3>
+        <div id="lobby-chat-messages" class="chat-messages"></div>
+        <div class="chat-input-row">
+          <input id="lobby-chat-input" class="input-field chat-input" type="text" placeholder="Nhắn tin..." maxlength="200" />
+          <button class="btn btn-icon" id="lobby-btn-send">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== GAME ====== -->
+<div id="page-game" class="page">
+  <div class="game-layout">
+    <!-- Sidebar trái: danh sách người chơi -->
+    <aside class="game-sidebar">
+      <div class="sidebar-header">
+        <span>👥 Người chơi</span>
+      </div>
+      <div id="game-players-list" class="game-players-list"></div>
+    </aside>
+
+    <!-- Khu vực chơi chính -->
+    <main class="game-main">
+      <!-- Header game -->
+      <div class="game-top-bar">
+        <div class="current-player-badge" id="current-player-badge">
+          <div class="spinner-small"></div>
+          <span id="current-player-name">...</span>
+          <span class="turn-label">đang chơi</span>
+        </div>
+        <div class="timer-container">
+          <svg class="timer-svg" viewBox="0 0 80 80" id="timer-svg">
+            <circle cx="40" cy="40" r="34" class="timer-track" />
+            <circle cx="40" cy="40" r="34" class="timer-fill" id="timer-circle" />
+          </svg>
+          <div class="timer-text" id="timer-text">20</div>
+        </div>
+      </div>
+
+      <!-- Từ hiện tại -->
+      <div class="word-display-area">
+        <div class="chain-label">🔗 Nối từ</div>
+        <div class="current-word-box">
+          <div class="current-word" id="current-word">---</div>
+          <div class="next-syllable-hint">
+            Âm tiết tiếp: <span id="next-syllable" class="highlight-syllable">---</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input từ -->
+      <div class="input-area" id="input-area">
+        <div class="word-input-group">
+          <input id="word-input" class="word-input" type="text"
+            placeholder="Nhập từ tiếp theo..." maxlength="50"
+            autocomplete="off" autocorrect="off" spellcheck="false" />
+          <button class="btn btn-submit" id="btn-submit-word">
+            <span>Gửi</span> ➤
+          </button>
+        </div>
+        <div id="word-error" class="word-error hidden"></div>
+      </div>
+
+      <!-- Lịch sử từ -->
+      <div class="word-history-section">
+        <div class="history-label">📜 Lịch sử</div>
+        <div id="word-history" class="word-history"></div>
+      </div>
+    </main>
+
+    <!-- Sidebar phải: chat -->
+    <aside class="chat-sidebar">
+      <div class="sidebar-header">💬 Chat</div>
+      <div id="game-chat-messages" class="chat-messages"></div>
+      <div class="chat-input-row">
+        <input id="game-chat-input" class="input-field chat-input" type="text" placeholder="Nhắn tin..." maxlength="200" />
+        <button class="btn btn-icon" id="game-btn-send">➤</button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ====== KẾT THÚC ====== -->
+<div id="page-gameover" class="page">
+  <div class="gameover-bg">
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div id="fireworks" class="fireworks"></div>
+  </div>
+
+  <div class="gameover-container">
+    <div class="winner-card" id="winner-card">
+      <div class="trophy">🏆</div>
+      <h2 class="winner-title">Chiến Thắng!</h2>
+      <div class="winner-info">
+        <div id="winner-avatar" class="winner-avatar">🐉</div>
+        <div id="winner-name" class="winner-name">---</div>
+        <div id="winner-score" class="winner-score">0 từ</div>
+      </div>
+    </div>
+
+    <div class="leaderboard-card">
+      <h3>🏅 Bảng xếp hạng</h3>
+      <div id="leaderboard" class="leaderboard"></div>
+    </div>
+
+    <div class="gameover-actions">
+      <button class="btn btn-primary btn-large" id="btn-play-again">🔄 Chơi lại</button>
+      <button class="btn btn-outline btn-large" id="btn-home">🏠 Về trang chủ</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- Scripts -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="dictionary.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

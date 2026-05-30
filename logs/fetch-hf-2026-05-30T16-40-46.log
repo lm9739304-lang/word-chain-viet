@@ -1,0 +1,32 @@
+[2026-05-30T16:40:46.224Z] [INFO] ?? Starting Hugging Face Dictionary Fetcher
+[2026-05-30T16:40:46.226Z] [INFO] ??  Source: Hugging Face Vietnamese Datasets
+[2026-05-30T16:40:46.227Z] [INFO] ?? Downloading Hugging Face datasets...
+[2026-05-30T16:40:46.227Z] [INFO] ?? Downloading: https://huggingface.co/datasets/tsdocode/vietnamese-dictiona...
+[2026-05-30T16:40:46.544Z] [SUCCESS] ? Downloaded: 0 words
+[2026-05-30T16:40:46.544Z] [INFO] ?? Downloading: https://huggingface.co/datasets/npvinHnivqn/VietnameseDictio...
+[2026-05-30T16:40:46.850Z] [SUCCESS] ? Downloaded: 0 words
+[2026-05-30T16:40:46.850Z] [SUCCESS] ? Total unique words: 0
+[2026-05-30T16:40:46.978Z] [SUCCESS] ? Loaded current dictionary: 45307 words
+[2026-05-30T16:40:46.979Z] [INFO] ?? Filtering 2-syllable words...
+[2026-05-30T16:40:46.979Z] [INFO] ?? Found 0 two-syllable words out of 0
+[2026-05-30T16:40:46.979Z] [INFO] ?? Comparing with current dictionary...
+[2026-05-30T16:40:46.979Z] [INFO] ? Found 0 new words
+[2026-05-30T16:40:46.979Z] [INFO] ?? Found 0 duplicate words
+[2026-05-30T16:40:46.979Z] [INFO] ?? Checking for dead-end words...
+[2026-05-30T16:40:46.979Z] [SUCCESS] ? Valid words (can continue): 0
+[2026-05-30T16:40:46.979Z] [INFO] ?? Dead-end words (removed): 0
+[2026-05-30T16:40:46.980Z] [SUCCESS] ?? New words saved: C:\Users\Admin\Desktop\word-chain-viet\results\new-words-hf-2026-05-30T16-40-46.json
+[2026-05-30T16:40:46.981Z] [SUCCESS] ?? Summary saved: C:\Users\Admin\Desktop\word-chain-viet\results\summary-hf-2026-05-30T16-40-46.json
+[2026-05-30T16:40:46.981Z] [INFO] 
+------------------------------------------------------------
+[2026-05-30T16:40:46.981Z] [SUCCESS] ? FETCH COMPLETED SUCCESSFULLY
+[2026-05-30T16:40:46.981Z] [INFO] ------------------------------------------------------------
+[2026-05-30T16:40:46.981Z] [INFO] ?? Total words fetched: 0
+[2026-05-30T16:40:46.981Z] [INFO] ?? Two-syllable words: 0
+[2026-05-30T16:40:46.981Z] [INFO] ? New words found: undefined
+[2026-05-30T16:40:46.981Z] [INFO] ? Valid words (can continue): 0
+[2026-05-30T16:40:46.981Z] [INFO] ?? Dead-end words (removed): 0
+[2026-05-30T16:40:46.981Z] [INFO] ?? Duplicate words: 0
+[2026-05-30T16:40:46.981Z] [INFO] ?? Current dictionary size: 45307
+[2026-05-30T16:40:46.981Z] [INFO] ?? New dictionary size: 45307
+[2026-05-30T16:40:46.981Z] [INFO] ------------------------------------------------------------

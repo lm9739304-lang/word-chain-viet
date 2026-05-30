@@ -1,0 +1,33 @@
+[2026-05-30T16:25:02.977Z] [INFO] ?? Starting UnderTheSea Dictionary Fetcher
+[2026-05-30T16:25:02.979Z] [INFO] ??  Source: UnderTheSea Dictionary
+[2026-05-30T16:25:02.980Z] [INFO] ?? Downloading UnderTheSea Dictionary files...
+[2026-05-30T16:25:02.980Z] [INFO] ?? Downloading: hdict.txt
+[2026-05-30T16:25:03.452Z] [SUCCESS] ? Downloaded hdict.txt: 1 words
+[2026-05-30T16:25:03.452Z] [INFO] ?? Downloading: hvdict.txt
+[2026-05-30T16:25:03.763Z] [SUCCESS] ? Downloaded hvdict.txt: 1 words
+[2026-05-30T16:25:03.763Z] [SUCCESS] ? Total unique words: 1
+[2026-05-30T16:25:03.887Z] [SUCCESS] ? Loaded current dictionary: 45292 words
+[2026-05-30T16:25:03.887Z] [INFO] ?? Filtering 2-syllable words...
+[2026-05-30T16:25:03.887Z] [INFO] ?? Found 0 two-syllable words out of 1
+[2026-05-30T16:25:03.887Z] [INFO] ?? Comparing with current dictionary...
+[2026-05-30T16:25:03.887Z] [INFO] ? Found 0 new words
+[2026-05-30T16:25:03.887Z] [INFO] ?? Found 0 duplicate words
+[2026-05-30T16:25:03.887Z] [INFO] ?? Checking for dead-end words...
+[2026-05-30T16:25:03.887Z] [SUCCESS] ? Valid words (can continue): 0
+[2026-05-30T16:25:03.887Z] [INFO] ?? Dead-end words (removed): 0
+[2026-05-30T16:25:03.888Z] [SUCCESS] ?? New words saved: C:\Users\Admin\Desktop\word-chain-viet\results\new-words-undersea-2026-05-30T16-25-03.json
+[2026-05-30T16:25:03.889Z] [INFO] ?? Dead-end words saved: C:\Users\Admin\Desktop\word-chain-viet\results\dead-end-undersea-2026-05-30T16-25-03.json
+[2026-05-30T16:25:03.889Z] [SUCCESS] ?? Summary saved: C:\Users\Admin\Desktop\word-chain-viet\results\summary-undersea-2026-05-30T16-25-03.json
+[2026-05-30T16:25:03.890Z] [INFO] 
+------------------------------------------------------------
+[2026-05-30T16:25:03.890Z] [SUCCESS] ? FETCH COMPLETED SUCCESSFULLY
+[2026-05-30T16:25:03.890Z] [INFO] ------------------------------------------------------------
+[2026-05-30T16:25:03.890Z] [INFO] ?? Total words fetched: 1
+[2026-05-30T16:25:03.890Z] [INFO] ?? Two-syllable words: 0
+[2026-05-30T16:25:03.890Z] [INFO] ? New words found: undefined
+[2026-05-30T16:25:03.890Z] [INFO] ? Valid words (can continue): 0
+[2026-05-30T16:25:03.890Z] [INFO] ?? Dead-end words (removed): 0
+[2026-05-30T16:25:03.890Z] [INFO] ?? Duplicate words: 0
+[2026-05-30T16:25:03.890Z] [INFO] ?? Current dictionary size: 45292
+[2026-05-30T16:25:03.890Z] [INFO] ?? New dictionary size: 45292
+[2026-05-30T16:25:03.890Z] [INFO] ------------------------------------------------------------

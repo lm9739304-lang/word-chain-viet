@@ -1,0 +1,13 @@
+run = "node server.js"
+entrypoint = "server.js"
+
+[env]
+NODE_ENV = "production"
+PORT = "3000"
+
+[nix]
+channel = "stable-22_11"
+
+[[ports]]
+localPort = 3000
+externalPort = 80

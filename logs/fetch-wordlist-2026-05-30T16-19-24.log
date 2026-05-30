@@ -1,0 +1,33 @@
+[2026-05-30T16:19:24.973Z] [INFO] ?? Starting Vietnamese Wordlist Fetcher
+[2026-05-30T16:19:24.976Z] [INFO] ??  Source: Duyet Vietnamese Wordlist (Viet74K)
+[2026-05-30T16:19:24.976Z] [INFO] ?? Downloading Vietnamese wordlist from: https://vietnamese-wordlist.duyet.net/Viet74K.txt
+[2026-05-30T16:19:28.192Z] [DEBUG] Downloaded 0.34MB...
+[2026-05-30T16:19:29.681Z] [SUCCESS] ? Downloaded 0.71MB
+[2026-05-30T16:19:29.683Z] [INFO] ?? Parsing wordlist...
+[2026-05-30T16:19:29.704Z] [SUCCESS] ? Parsed 73901 total words
+[2026-05-30T16:19:29.838Z] [SUCCESS] ? Loaded current dictionary: 45224 words
+[2026-05-30T16:19:29.838Z] [INFO] ?? Filtering 2-syllable words...
+[2026-05-30T16:19:29.866Z] [INFO] ?? Found 49564 two-syllable words out of 73901
+[2026-05-30T16:19:29.866Z] [INFO] ?? Comparing with current dictionary...
+[2026-05-30T16:19:29.887Z] [INFO] ? Found 3656 new words
+[2026-05-30T16:19:29.887Z] [INFO] ?? Found 45908 duplicate words
+[2026-05-30T16:19:29.887Z] [INFO] ?? Checking for dead-end words...
+[2026-05-30T16:19:29.891Z] [SUCCESS] ? Valid words (can continue): 68
+[2026-05-30T16:19:29.891Z] [INFO] ?? Dead-end words (removed): 3588
+[2026-05-30T16:19:29.893Z] [SUCCESS] ?? New words saved: C:\Users\Admin\Desktop\word-chain-viet\results\new-words-2026-05-30T16-19-29.json
+[2026-05-30T16:19:29.896Z] [INFO] ?? Dead-end words saved: C:\Users\Admin\Desktop\word-chain-viet\results\dead-end-words-2026-05-30T16-19-29.json
+[2026-05-30T16:19:29.909Z] [INFO] ?? Duplicates saved: C:\Users\Admin\Desktop\word-chain-viet\results\duplicates-2026-05-30T16-19-29.json
+[2026-05-30T16:19:29.910Z] [SUCCESS] ?? Summary saved: C:\Users\Admin\Desktop\word-chain-viet\results\summary-2026-05-30T16-19-29.json
+[2026-05-30T16:19:29.910Z] [INFO] 
+------------------------------------------------------------
+[2026-05-30T16:19:29.910Z] [SUCCESS] ? FETCH COMPLETED SUCCESSFULLY
+[2026-05-30T16:19:29.910Z] [INFO] ------------------------------------------------------------
+[2026-05-30T16:19:29.910Z] [INFO] ?? Total words fetched: 73901
+[2026-05-30T16:19:29.910Z] [INFO] ?? Two-syllable words: 49564
+[2026-05-30T16:19:29.910Z] [INFO] ? New words found: undefined
+[2026-05-30T16:19:29.910Z] [INFO] ? Valid words (can continue): 68
+[2026-05-30T16:19:29.910Z] [INFO] ?? Dead-end words (removed): 3588
+[2026-05-30T16:19:29.910Z] [INFO] ?? Duplicate words: 45908
+[2026-05-30T16:19:29.910Z] [INFO] ?? Current dictionary size: 45224
+[2026-05-30T16:19:29.910Z] [INFO] ?? New dictionary size: 45292
+[2026-05-30T16:19:29.910Z] [INFO] ------------------------------------------------------------
