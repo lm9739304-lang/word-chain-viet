@@ -333,8 +333,35 @@ io.on('connection', (socket) => {
       return;
     }
 
+    // Kiểm tra từ chết (dead word)
     if (!canContinueFrom(wordClean)) {
-      socket.emit('wordError', { message: '🚫 Từ này không thể nối tiếp được! Chọn từ khác.' });
+      // Từ chết - người chơi này THẮNG!
+      clearTurnTimer(socket.roomCode);
+      room.usedWords.add(wordClean);
+      room.currentWord = wordClean;
+      currentPlayer.score++;
+      
+      room.wordHistory.push({
+        word: wordClean,
+        player: currentPlayer.username,
+        playerId: socket.id,
+        timestamp: Date.now(),
+        isDeadWord: true
+      });
+
+      // Kết thúc trò chơi - người chơi này thắng
+      room.gameStarted = false;
+      room.status = 'finished';
+
+      io.to(socket.roomCode).emit('deadWordWin', {
+        word: wordClean,
+        winner: { id: currentPlayer.id, username: currentPlayer.username },
+        message: `🏆 ${currentPlayer.username} thắng!`,
+        details: `🎯 Từ "${wordClean}" là dead word. Đối thủ không thể tiếp tục nối từ.`,
+        players: getRoomPublicData(room).players,
+        wordHistory: room.wordHistory
+      });
+
       return;
     }
 
