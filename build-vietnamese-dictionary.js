@@ -14,30 +14,12 @@ class BuildVietnameseDictionary {
   isVietnameseWord(word) {
     if (!word || word.length === 0) return false;
     
-    // Vietnamese diacritical marks
+    // Vietnamese diacritical marks - MUST contain at least one
     const vietnameseDiacritics = /[àáảãạăằắẳẵặâầấẩẫậđèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ]/i;
     
-    // Check if word contains Vietnamese diacritics
-    if (vietnameseDiacritics.test(word)) {
-      return true;
-    }
-    
-    // Check if word is only lowercase letters, spaces, and hyphens (common Vietnamese words)
-    if (/^[a-z\s\-]+$/.test(word)) {
-      // Exclude pure English words (common English words)
-      const commonEnglish = ['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'its', 'let', 'put', 'say', 'she', 'too', 'use'];
-      
-      if (commonEnglish.includes(word.toLowerCase())) {
-        return false;
-      }
-      
-      // Accept if it has at least 2 characters and doesn't look like pure English
-      if (word.length >= 2) {
-        return true;
-      }
-    }
-    
-    return false;
+    // Only accept words that contain Vietnamese diacritical marks
+    // This ensures we only get Vietnamese words
+    return vietnameseDiacritics.test(word);
   }
 
   openDatabase() {
