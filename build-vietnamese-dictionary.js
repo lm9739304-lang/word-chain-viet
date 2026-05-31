@@ -120,7 +120,18 @@ class BuildVietnameseDictionary {
     console.log("🔨 Building Vietnamese dictionary...");
     
     const wordArray = Array.from(this.words).sort();
-    const wordsStr = wordArray.map(w => `"${w}"`).join(",");
+    
+    // Escape special characters in words
+    const escapedWords = wordArray.map(w => {
+      return w
+        .replace(/\\/g, '\\\\')  // Escape backslashes first
+        .replace(/"/g, '\\"')    // Escape double quotes
+        .replace(/\n/g, '\\n')   // Escape newlines
+        .replace(/\r/g, '\\r')   // Escape carriage returns
+        .replace(/\t/g, '\\t');  // Escape tabs
+    });
+    
+    const wordsStr = escapedWords.map(w => `"${w}"`).join(",");
     
     const dictContent = `// ===========================
 // TỪ ĐIỂN TIẾNG VIỆT - NỐI TỪ
@@ -131,8 +142,8 @@ class BuildVietnameseDictionary {
 const WORD_LIST = [${wordsStr}];
 
 // Xây dựng index cho tìm kiếm nhanh
-const WORDS_BY_FIRST = {};
-const WORDS_BY_LAST = {};
+const WORDS_BY_FIRST = new Map();
+const WORDS_BY_LAST = new Map();
 const DICTIONARY = new Set();
 
 for (const word of WORD_LIST) {
@@ -142,15 +153,15 @@ for (const word of WORD_LIST) {
   const first = parts[0];
   const last = parts[parts.length - 1];
   
-  if (!WORDS_BY_FIRST[first]) {
-    WORDS_BY_FIRST[first] = [];
+  if (!WORDS_BY_FIRST.has(first)) {
+    WORDS_BY_FIRST.set(first, []);
   }
-  WORDS_BY_FIRST[first].push(word);
+  WORDS_BY_FIRST.get(first).push(word);
   
-  if (!WORDS_BY_LAST[last]) {
-    WORDS_BY_LAST[last] = [];
+  if (!WORDS_BY_LAST.has(last)) {
+    WORDS_BY_LAST.set(last, []);
   }
-  WORDS_BY_LAST[last].push(word);
+  WORDS_BY_LAST.get(last).push(word);
   
   DICTIONARY.add(word);
 }
@@ -169,7 +180,7 @@ function isValidWord(word) {
 }
 
 function getWordsStartingWith(syllable) {
-  return WORDS_BY_FIRST[syllable.toLowerCase()] || [];
+  return WORDS_BY_FIRST.get(syllable.toLowerCase()) || [];
 }
 
 function getRandomWord() {
